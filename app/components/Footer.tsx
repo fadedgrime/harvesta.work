@@ -87,7 +87,7 @@ export default function Footer() {
             <div className="space-y-4">
               <Button 
                 className="w-full bg-[#22c55e] hover:bg-[#22c55e]/90 text-white"
-                onClick={() => handleSocialClick("https://discord.gg/harvesta")}
+                onClick={() => handleSocialClick("https://discord.gg/krhm35cUtZ")}
               >
                 Join Discord
               </Button>

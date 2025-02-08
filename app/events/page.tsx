@@ -23,7 +23,7 @@ const events: Event[] = [
     location: "Harvesta Application Center",
     description: "Looking to join our team? Join our application center to learn about available positions.",
     buttonText: "Join Application Center",
-    buttonLink: "https://discord.gg/harvesta",
+    buttonLink: "https://discord.gg/krhm35cUtZ",
   }
 ]
 

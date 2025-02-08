@@ -5,7 +5,7 @@ import { Button } from "./ui/button"
 
 export default function ContactForm() {
   const handleButtonClick = () => {
-    window.open("https://discord.gg/your-discord-link", "_blank")
+    window.open("https://discord.gg/krhm35cUtZ", "_blank")
   }
 
   return (
