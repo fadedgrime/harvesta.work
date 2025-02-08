@@ -4,6 +4,7 @@ import "./globals.css"
 import type React from "react"
 import Header from "./components/Header"
 import Announcement from "./components/Announcement"
+import { Analytics } from "@vercel/analytics/react"
 
 const inter = Inter({ subsets: ["latin"] })
 const dmSans = DM_Sans({
