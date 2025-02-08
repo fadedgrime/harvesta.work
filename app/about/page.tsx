@@ -5,27 +5,27 @@ import { Users, ShoppingBag, Trophy, Heart } from "lucide-react"
 import Footer from "../components/Footer"
 
 const stats = [
-  { icon: <Users className="h-6 w-6 text-[#22c55e]" />, value: "1000+", label: "Daily Shoppers" },
+  { icon: <Users className="h-6 w-6 text-[#22c55e]" />, value: "50+", label: "Daily Shoppers" },
   { icon: <ShoppingBag className="h-6 w-6 text-[#22c55e]" />, value: "50+", label: "Store Items" },
-  { icon: <Trophy className="h-6 w-6 text-[#22c55e]" />, value: "10k+", label: "Group Members" },
+  { icon: <Trophy className="h-6 w-6 text-[#22c55e]" />, value: "500+", label: "Group Members" },
   { icon: <Heart className="h-6 w-6 text-[#22c55e]" />, value: "100%", label: "Customer Satisfaction" },
 ]
 
 const teamMembers = [
   {
-    name: "Alex",
-    role: "Founder & CEO",
-    description: "Leading Harvesta's mission to revolutionize virtual shopping.",
+    name: "monumcnt (Nevaeh)",
+    role: "Executive Director",
+    description: "The owner and creator of Harvesta.",
   },
   {
-    name: "Sarah",
-    role: "Store Manager",
+    name: "unxnownyt (Unknown)",
+    role: "Operations Director",
     description: "Ensuring smooth operations and customer satisfaction.",
   },
   {
-    name: "Michael",
-    role: "Community Manager",
-    description: "Building and nurturing our amazing community.",
+    name: "Could be you!",
+    role: "???",
+    description: "You could be the next person to join the team!",
   },
 ]
 
