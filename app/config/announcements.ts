@@ -11,12 +11,12 @@ interface Announcement {
 
 export const announcements: Announcement[] = [
   {
-    id: "staff-applications",
-    message: "Staff applications are now open!",
-    enabled: false,
-    emoji: "🎉",
+    id: "emails",
+    message: "harvesta.work emails are down. For assistance, please join our Discord server.",
+    enabled: true,
+    emoji: "🚫",
     link: {
-      text: "Join our Discord server to apply",
+      text: "Discord server",
       url: "https://discord.gg/harvesta"
     }
   }
