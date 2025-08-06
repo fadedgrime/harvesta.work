@@ -1,14 +1,15 @@
 import Link from "next/link"
-import { Mail, MessageSquare, ArrowRight } from "lucide-react"
+import { ArrowRight, Heart, Users, Target } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent } from "@/components/ui/card"
 
 export const metadata = {
-  title: "Contact Us | Harvesta",
-  description: "Get in touch with the Harvesta team for support or inquiries.",
+  title: "Harvesta Foundation | Harvesta",
+  description:
+    "Learn about Harvesta Foundation's commitment to giving back to the community and supporting long-term sustainability.",
 }
 
-export default function ContactPage() {
+export default function FoundationPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
@@ -31,10 +32,10 @@ export default function ContactPage() {
             <Link href="/about" className="text-sm font-medium text-gray-600 hover:text-gray-900">
               About
             </Link>
-            <Link href="/foundation" className="text-sm font-medium text-gray-600 hover:text-gray-900">
+            <Link href="/foundation" className="text-sm font-medium text-emerald-600">
               Foundation
             </Link>
-            <Link href="/contact" className="text-sm font-medium text-emerald-600">
+            <Link href="/contact" className="text-sm font-medium text-gray-600 hover:text-gray-900">
               Contact Us
             </Link>
           </nav>
@@ -55,120 +56,115 @@ export default function ContactPage() {
         <div className="container">
           <div className="mx-auto max-w-4xl text-center">
             <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-              Contact{" "}
-              <span className="bg-gradient-to-r from-emerald-600 to-emerald-500 bg-clip-text text-transparent">Us</span>
+              Harvesta{" "}
+              <span className="bg-gradient-to-r from-emerald-600 to-emerald-500 bg-clip-text text-transparent">
+                Foundation
+              </span>
             </h1>
             <p className="mt-6 text-lg leading-8 text-gray-600 sm:text-xl">
-              Need assistance or have questions about Harvesta? We're here to help. Choose your preferred method to get
-              in touch with our team.
+              Dedicated to giving back to the community and supporting the long-term sustainability of Harvesta's
+              operations through meaningful initiatives and partnerships.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Contact Options */}
+      {/* Foundation Mission */}
       <section className="py-16 sm:py-24">
         <div className="container">
           <div className="mx-auto max-w-4xl">
-            <div className="grid gap-8 md:grid-cols-2">
-              {/* Email Option */}
-              <Card className="border-0 shadow-sm">
-                <CardHeader className="pb-4">
-                  <CardTitle className="flex items-center gap-2">
-                    <Mail className="h-5 w-5 text-emerald-600" />
-                    Email Support
-                  </CardTitle>
-                  <CardDescription>Send us an email directly</CardDescription>
-                </CardHeader>
-                <CardContent className="pb-4">
-                  <p className="text-gray-600">
-                    For general inquiries, support requests, or feedback, you can reach our team via email. We typically
-                    respond within 24-48 hours.
+            <div className="text-center mb-16">
+              <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-8">Our Foundation</h2>
+              <Card className="border-emerald-200 bg-emerald-50">
+                <CardContent className="p-12">
+                  <p className="text-xl leading-relaxed text-gray-700">
+                    The Harvesta Foundation is dedicated to giving back to the community and supporting the long-term
+                    sustainability of Harvesta's operations. Through strategic funding efforts, the Foundation helps
+                    strengthen our mission to serve, uplift, and inspire those we reach.
                   </p>
                 </CardContent>
-                <CardFooter>
-                  <Button className="w-full bg-emerald-600 hover:bg-emerald-700" asChild>
-                    <Link href="mailto:support@harvestaremote.com">Email support@harvestaremote.com</Link>
-                  </Button>
-                </CardFooter>
+              </Card>
+            </div>
+
+            {/* Mission Pillars */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <Card className="border-0 shadow-sm">
+                <CardContent className="p-8 text-center">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-emerald-100 mx-auto mb-6">
+                    <Heart className="h-6 w-6 text-emerald-600" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-4">Serve</h3>
+                  <p className="text-gray-600">
+                    We serve our community by providing resources and support where they are needed most, creating
+                    lasting positive impact.
+                  </p>
+                </CardContent>
               </Card>
 
-              {/* Discord Option */}
               <Card className="border-0 shadow-sm">
-                <CardHeader className="pb-4">
-                  <CardTitle className="flex items-center gap-2">
-                    <MessageSquare className="h-5 w-5 text-emerald-600" />
-                    Discord Support
-                  </CardTitle>
-                  <CardDescription>Join our Discord server and open a ticket</CardDescription>
-                </CardHeader>
-                <CardContent className="pb-4">
-                  <p className="text-gray-600 mb-4">
-                    For faster support, join our Discord server and open a support ticket. Our team is available to
-                    assist you.
+                <CardContent className="p-8 text-center">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-emerald-100 mx-auto mb-6">
+                    <Users className="h-6 w-6 text-emerald-600" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-4">Uplift</h3>
+                  <p className="text-gray-600">
+                    We uplift individuals and communities by creating opportunities for growth, learning, and
+                    development.
                   </p>
-                  <Card className="bg-gray-50 border-gray-200">
-                    <CardContent className="p-4">
-                      <p className="font-medium text-gray-900 mb-2">Important Requirements:</p>
-                      <ul className="list-disc pl-5 space-y-1 text-sm text-gray-600">
-                        <li>You must have a Roblox account</li>
-                        <li>Your Roblox account must be linked to your Discord account</li>
-                        <li>This is required for safety and guideline enforcement</li>
-                      </ul>
-                    </CardContent>
-                  </Card>
                 </CardContent>
-                <CardFooter>
-                  <Button variant="outline" className="w-full bg-transparent" asChild>
-                    <Link href="https://discord.gg/krhm35cUtZ" target="_blank" rel="noopener noreferrer">
-                      Join Our Discord Server
-                    </Link>
-                  </Button>
-                </CardFooter>
+              </Card>
+
+              <Card className="border-0 shadow-sm">
+                <CardContent className="p-8 text-center">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-emerald-100 mx-auto mb-6">
+                    <Target className="h-6 w-6 text-emerald-600" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-4">Inspire</h3>
+                  <p className="text-gray-600">
+                    We inspire positive change by leading through example and encouraging others to make a meaningful
+                    difference.
+                  </p>
+                </CardContent>
               </Card>
             </div>
           </div>
         </div>
       </section>
 
-      {/* FAQ Section */}
+      {/* Impact Areas */}
       <section className="py-16 sm:py-24 bg-gray-50">
         <div className="container">
           <div className="mx-auto max-w-4xl">
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-12 text-center">
-              Frequently Asked Questions
+              Our Impact Areas
             </h2>
             <div className="space-y-8">
               <Card className="border-0 shadow-sm">
                 <CardContent className="p-8">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-3">
-                    How do I link my Roblox account to Discord?
-                  </h3>
-                  <p className="text-gray-600">
-                    You can link your Roblox account to Discord by using the verification bot in our server. Join our
-                    Discord server and follow the instructions in the #verification channel.
+                  <h3 className="text-xl font-semibold text-gray-900 mb-4">Community Development</h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    Supporting initiatives that strengthen our virtual and real-world communities through education,
+                    mentorship, and resource sharing programs.
                   </p>
                 </CardContent>
               </Card>
 
               <Card className="border-0 shadow-sm">
                 <CardContent className="p-8">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-3">
-                    What information should I include in my support request?
-                  </h3>
-                  <p className="text-gray-600">
-                    Please include your Roblox username, a detailed description of your issue or question, and any
-                    relevant screenshots or information that might help us assist you better.
+                  <h3 className="text-xl font-semibold text-gray-900 mb-4">Digital Literacy</h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    Promoting digital literacy and safe online practices, especially within gaming communities and
+                    virtual commerce environments.
                   </p>
                 </CardContent>
               </Card>
 
               <Card className="border-0 shadow-sm">
                 <CardContent className="p-8">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-3">How long does it take to get a response?</h3>
-                  <p className="text-gray-600">
-                    Email responses typically take 24-48 hours. Discord support tickets are usually addressed within 24
-                    hours, with faster response times during peak hours.
+                  <h3 className="text-xl font-semibold text-gray-900 mb-4">Sustainability</h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    Ensuring the long-term sustainability of our operations while maintaining our commitment to
+                    environmental and social responsibility.
                   </p>
                 </CardContent>
               </Card>
@@ -180,18 +176,14 @@ export default function ContactPage() {
       {/* CTA Section */}
       <section className="py-16 sm:py-24 bg-emerald-600">
         <div className="container text-center">
-          <h2 className="text-3xl font-bold text-white mb-6">Ready to Get Started?</h2>
+          <h2 className="text-3xl font-bold text-white mb-6">Join Our Mission</h2>
           <p className="text-xl text-emerald-100 mb-10 max-w-2xl mx-auto">
-            Join our community and experience the future of virtual shopping today.
+            Be part of our commitment to creating positive change in virtual commerce and community building.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="bg-white text-emerald-600 hover:bg-gray-100 px-8" asChild>
-              <Link
-                href="https://www.roblox.com/games/140720090495456/Harvesta-Greenwich-Store"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Visit Our Store
+              <Link href="/contact">
+                Get Involved
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
@@ -201,13 +193,7 @@ export default function ContactPage() {
               className="border-2 border-white text-white hover:bg-white hover:text-emerald-600 px-8 bg-transparent"
               asChild
             >
-              <Link
-                href="https://www.roblox.com/communities/9018942/Harvesta"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Join Roblox Community
-              </Link>
+              <Link href="/about">Learn More</Link>
             </Button>
           </div>
         </div>

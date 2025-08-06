@@ -1,14 +1,15 @@
 import Link from "next/link"
-import { Mail, MessageSquare, ArrowRight } from "lucide-react"
+import { ArrowRight, Clock, ExternalLink } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent } from "@/components/ui/card"
+import { ANNOUNCEMENTS } from "@/components/announcements"
 
 export const metadata = {
-  title: "Contact Us | Harvesta",
-  description: "Get in touch with the Harvesta team for support or inquiries.",
+  title: "Announcements | Harvesta",
+  description: "Latest announcements and updates from Harvesta.",
 }
 
-export default function ContactPage() {
+export default function AnnouncementsPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
@@ -34,7 +35,7 @@ export default function ContactPage() {
             <Link href="/foundation" className="text-sm font-medium text-gray-600 hover:text-gray-900">
               Foundation
             </Link>
-            <Link href="/contact" className="text-sm font-medium text-emerald-600">
+            <Link href="/contact" className="text-sm font-medium text-gray-600 hover:text-gray-900">
               Contact Us
             </Link>
           </nav>
@@ -51,128 +52,78 @@ export default function ContactPage() {
       </header>
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-gray-50 to-white py-20 sm:py-32">
+      <section className="relative overflow-hidden bg-gradient-to-b from-emerald-50 to-white py-16 sm:py-20">
         <div className="container">
           <div className="mx-auto max-w-4xl text-center">
-            <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-              Contact{" "}
-              <span className="bg-gradient-to-r from-emerald-600 to-emerald-500 bg-clip-text text-transparent">Us</span>
+            <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+              Latest{" "}
+              <span className="bg-gradient-to-r from-emerald-600 to-emerald-500 bg-clip-text text-transparent">
+                Announcements
+              </span>
             </h1>
-            <p className="mt-6 text-lg leading-8 text-gray-600 sm:text-xl">
-              Need assistance or have questions about Harvesta? We're here to help. Choose your preferred method to get
-              in touch with our team.
+            <p className="mt-4 text-lg leading-8 text-gray-600">
+              Stay informed with the latest updates and important information from Harvesta.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Contact Options */}
-      <section className="py-16 sm:py-24">
+      {/* Announcements Content - Moved up and made prominent */}
+      <section className="py-8 sm:py-12">
         <div className="container">
           <div className="mx-auto max-w-4xl">
-            <div className="grid gap-8 md:grid-cols-2">
-              {/* Email Option */}
-              <Card className="border-0 shadow-sm">
-                <CardHeader className="pb-4">
-                  <CardTitle className="flex items-center gap-2">
-                    <Mail className="h-5 w-5 text-emerald-600" />
-                    Email Support
-                  </CardTitle>
-                  <CardDescription>Send us an email directly</CardDescription>
-                </CardHeader>
-                <CardContent className="pb-4">
-                  <p className="text-gray-600">
-                    For general inquiries, support requests, or feedback, you can reach our team via email. We typically
-                    respond within 24-48 hours.
-                  </p>
-                </CardContent>
-                <CardFooter>
-                  <Button className="w-full bg-emerald-600 hover:bg-emerald-700" asChild>
-                    <Link href="mailto:support@harvestaremote.com">Email support@harvestaremote.com</Link>
-                  </Button>
-                </CardFooter>
-              </Card>
+            {ANNOUNCEMENTS.length === 0 ? (
+              <div className="text-center py-12">
+                <div className="mx-auto w-24 h-24 bg-emerald-100 rounded-full flex items-center justify-center mb-6">
+                  <Clock className="h-12 w-12 text-emerald-600" />
+                </div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">No announcements at this time</h3>
+                <p className="text-gray-500">Check back later for updates and news from Harvesta.</p>
+              </div>
+            ) : (
+              <div className="space-y-6">
+                {ANNOUNCEMENTS.map((announcement, index) => (
+                  <Card
+                    key={announcement.id}
+                    className="border-2 border-emerald-200 bg-gradient-to-r from-emerald-50 to-emerald-25 shadow-lg hover:shadow-xl transition-all duration-200 hover:border-emerald-300"
+                  >
+                    <CardContent className="p-8">
+                      <div className="flex items-start justify-between mb-4">
+                        <div className="flex-1">
+                          <div className="flex items-center gap-3 mb-3">
+                            <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-emerald-600 text-white">
+                              📢 ANNOUNCEMENT
+                            </span>
+                            <time className="text-sm text-emerald-700 font-medium" dateTime="2025-06-18">
+                              June 18, 2025
+                            </time>
+                          </div>
+                          <h2 className="text-2xl font-bold text-emerald-900 mb-4">{announcement.title}</h2>
+                        </div>
+                      </div>
 
-              {/* Discord Option */}
-              <Card className="border-0 shadow-sm">
-                <CardHeader className="pb-4">
-                  <CardTitle className="flex items-center gap-2">
-                    <MessageSquare className="h-5 w-5 text-emerald-600" />
-                    Discord Support
-                  </CardTitle>
-                  <CardDescription>Join our Discord server and open a ticket</CardDescription>
-                </CardHeader>
-                <CardContent className="pb-4">
-                  <p className="text-gray-600 mb-4">
-                    For faster support, join our Discord server and open a support ticket. Our team is available to
-                    assist you.
-                  </p>
-                  <Card className="bg-gray-50 border-gray-200">
-                    <CardContent className="p-4">
-                      <p className="font-medium text-gray-900 mb-2">Important Requirements:</p>
-                      <ul className="list-disc pl-5 space-y-1 text-sm text-gray-600">
-                        <li>You must have a Roblox account</li>
-                        <li>Your Roblox account must be linked to your Discord account</li>
-                        <li>This is required for safety and guideline enforcement</li>
-                      </ul>
+                      <div className="bg-white/70 rounded-lg p-6 mb-6 border border-emerald-100">
+                        <p className="text-gray-700 leading-relaxed text-lg">{announcement.message}</p>
+                      </div>
+
+                      {announcement.link && (
+                        <div className="flex justify-start">
+                          <Button
+                            className="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-lg font-semibold shadow-md hover:shadow-lg transition-all duration-200"
+                            asChild
+                          >
+                            <Link href={announcement.link.url} target="_blank" rel="noopener noreferrer">
+                              {announcement.link.text}
+                              <ExternalLink className="ml-2 h-4 w-4" />
+                            </Link>
+                          </Button>
+                        </div>
+                      )}
                     </CardContent>
                   </Card>
-                </CardContent>
-                <CardFooter>
-                  <Button variant="outline" className="w-full bg-transparent" asChild>
-                    <Link href="https://discord.gg/krhm35cUtZ" target="_blank" rel="noopener noreferrer">
-                      Join Our Discord Server
-                    </Link>
-                  </Button>
-                </CardFooter>
-              </Card>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ Section */}
-      <section className="py-16 sm:py-24 bg-gray-50">
-        <div className="container">
-          <div className="mx-auto max-w-4xl">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-12 text-center">
-              Frequently Asked Questions
-            </h2>
-            <div className="space-y-8">
-              <Card className="border-0 shadow-sm">
-                <CardContent className="p-8">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-3">
-                    How do I link my Roblox account to Discord?
-                  </h3>
-                  <p className="text-gray-600">
-                    You can link your Roblox account to Discord by using the verification bot in our server. Join our
-                    Discord server and follow the instructions in the #verification channel.
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="border-0 shadow-sm">
-                <CardContent className="p-8">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-3">
-                    What information should I include in my support request?
-                  </h3>
-                  <p className="text-gray-600">
-                    Please include your Roblox username, a detailed description of your issue or question, and any
-                    relevant screenshots or information that might help us assist you better.
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="border-0 shadow-sm">
-                <CardContent className="p-8">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-3">How long does it take to get a response?</h3>
-                  <p className="text-gray-600">
-                    Email responses typically take 24-48 hours. Discord support tickets are usually addressed within 24
-                    hours, with faster response times during peak hours.
-                  </p>
-                </CardContent>
-              </Card>
-            </div>
+                ))}
+              </div>
+            )}
           </div>
         </div>
       </section>
@@ -180,9 +131,9 @@ export default function ContactPage() {
       {/* CTA Section */}
       <section className="py-16 sm:py-24 bg-emerald-600">
         <div className="container text-center">
-          <h2 className="text-3xl font-bold text-white mb-6">Ready to Get Started?</h2>
+          <h2 className="text-3xl font-bold text-white mb-6">Stay Connected</h2>
           <p className="text-xl text-emerald-100 mb-10 max-w-2xl mx-auto">
-            Join our community and experience the future of virtual shopping today.
+            Join our community to get the latest updates and be part of the Harvesta experience.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="bg-white text-emerald-600 hover:bg-gray-100 px-8" asChild>

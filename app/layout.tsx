@@ -1,48 +1,57 @@
-import type { Metadata } from "next"
-import { Inter, DM_Sans } from "next/font/google"
-import "./globals.css"
 import type React from "react"
-import Header from "./components/Header"
-import Announcement from "./components/Announcement"
-import { Analytics } from "@vercel/analytics/react"
+import "@/app/globals.css"
+import { DM_Sans } from "next/font/google"
+import { cn } from "@/lib/utils"
+import ScrollToTop from "@/components/scroll-to-top"
 
-const inter = Inter({ subsets: ["latin"] })
 const dmSans = DM_Sans({
   subsets: ["latin"],
-  weight: ["700"], // This imports the bold weight
   variable: "--font-dm-sans",
+  display: "swap",
 })
 
-export const metadata: Metadata = {
-  metadataBase: new URL('https://harvesta.work'),
+export const metadata = {
   title: {
-    default: "Harvesta - Virtual Grocery Shopping on Roblox",
-    template: "%s | Harvesta"
+    default: "Harvesta | Premier Virtual Shopping on Roblox",
+    template: "%s | Harvesta",
   },
-  description: "Experience a unique virtual grocery shopping adventure in Roblox with Harvesta. Shop, explore, and have fun!",
-  keywords: ["Roblox", "shopping", "virtual store", "grocery", "game", "Harvesta"],
+  description:
+    "Experience the future of virtual shopping with Harvesta on Roblox. Quality products, exceptional service, and a thriving community of 700+ members.",
+  keywords: ["Roblox", "virtual shopping", "grocery store", "online community", "gaming", "virtual commerce"],
   authors: [{ name: "Harvesta Team" }],
+  creator: "Harvesta",
+  publisher: "Harvesta",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  metadataBase: new URL("https://harvesta.work"),
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
-    title: "Harvesta - Virtual Grocery Shopping on Roblox",
-    description: "Experience premier virtual grocery shopping on Roblox with quality products and exceptional service.",
-    url: "https://harvesta.com",
+    type: "website",
+    locale: "en_US",
+    url: "https://harvesta.work",
     siteName: "Harvesta",
+    title: "Harvesta | Premier Virtual Shopping on Roblox",
+    description:
+      "Experience the future of virtual shopping with Harvesta on Roblox. Quality products, exceptional service, and a thriving community.",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/images/harvesta-hero-background.png",
         width: 1200,
         height: 630,
-        alt: "Harvesta - Virtual Grocery Shopping"
-      }
+        alt: "Harvesta - Premier Virtual Shopping on Roblox",
+      },
     ],
-    locale: "en_US",
-    type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Harvesta - Virtual Grocery Shopping on Roblox",
-    description: "Experience premier virtual grocery shopping on Roblox with quality products and exceptional service.",
-    images: ["/twitter-image.jpg"],
+    title: "Harvesta | Premier Virtual Shopping on Roblox",
+    description: "Experience the future of virtual shopping with Harvesta on Roblox.",
+    images: ["/images/harvesta-hero-background.png"],
   },
   robots: {
     index: true,
@@ -56,8 +65,9 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: "your-google-verification-code",
+    google: "your-google-verification-code", // Replace with actual verification code
   },
+    generator: 'v0.dev'
 }
 
 export default function RootLayout({
@@ -66,18 +76,19 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`scroll-smooth ${dmSans.variable}`}>
-      <body className={`${inter.className} bg-[#111111]`}>
-        <div className="flex flex-col min-h-screen bg-[#111111]">
-          <Header />
-          <Announcement />
-          <main className="flex-grow">
-            {children}
-          </main>
-        </div>
-        <Analytics />
+    <html lang="en" className="scroll-smooth">
+      <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="theme-color" content="#059669" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+      </head>
+      <body className={cn("min-h-screen font-sans antialiased", dmSans.variable)}>
+        <ScrollToTop />
+        {children}
       </body>
     </html>
   )
 }
-
